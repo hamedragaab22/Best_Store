@@ -6,6 +6,9 @@ import jakarta.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductDto {
+    private int id;
+
+
     @NotEmpty(message = "the Name is required")
     private String name;
     @NotEmpty(message = "the Brand is required")
@@ -14,10 +17,19 @@ public class ProductDto {
     private String category;
     @Min(0)
     private double price;
-    @Size(min = 10,message = "the description should be at least 10 characters ")
-    @Size(max = 2000,message = "the description can not exceed 2000 characters")
+    @Size(min = 10, message = "the description should be at least 10 characters ")
+    @Size(max = 2000, message = "the description can not exceed 2000 characters")
     private String description;
     private MultipartFile imageFileName;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public String getName() {
         return name;
